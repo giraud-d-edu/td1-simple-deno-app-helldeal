@@ -31,11 +31,18 @@ export function addBook(book: Book): void {
 
 export function updateBook(id: number, book: Book): Book | undefined {
   const index = books.findIndex((book) => book.id === id);
+  if (index === -1) {
+    return undefined;
+  }
   books[index] = book;
   return books[index];
 }
 
-export function deleteBook(id: number): void {
+export function deleteBook(id: number): boolean {
   const index = books.findIndex((book) => book.id === id);
+  if (index === -1) {
+    return false;
+  }
   books.splice(index, 1);
+  return true;
 }

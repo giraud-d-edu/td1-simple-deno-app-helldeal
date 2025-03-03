@@ -17,6 +17,5 @@ export const updateBook = (id: number, book: Book): Book | undefined => {
 };
 
 export const deleteBook = (id: number): boolean => {
-  bookRepository.deleteBook(id);
-  return true;
+  return bookRepository.deleteBook(id);
 };
